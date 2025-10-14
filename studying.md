@@ -19,4 +19,4 @@ title: Certificazioni ed Autodidatta
 - Red Hat OpenShift Development I: Introduction to Containers with Podman 4.14
     - 24%
 - Google Data Analytics Professional Certificate
-    - 1/8
+    - 5/8
