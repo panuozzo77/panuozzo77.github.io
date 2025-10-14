@@ -20,3 +20,6 @@ title: Certificazioni ed Autodidatta
     - 24%
 - Google Data Analytics Professional Certificate
     - 5/8
+
+- Data Built Tool (dbt) Fundamentals
+    - 10%
