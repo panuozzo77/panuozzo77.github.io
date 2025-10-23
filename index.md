@@ -9,6 +9,14 @@ Sono uno sviluppatore software nato nel 2002 con una profonda passione per la ma
 
 Sempre alla ricerca di nuove sfide per applicare od ampliare le mie conoscenze e crescere professionalmente.
 
+---
+
+## [Qui pubblico cosa sto studiando](studying.md)
+
+## [Qui invece cosa leggo](https://panuozzo77.github.io/LiteraryLog/)
+
+---
+
 Adoro scrivere codice Open Source, come puoi vedere qui in basso ⬇  
 
 ---
@@ -18,11 +26,6 @@ Adoro scrivere codice Open Source, come puoi vedere qui in basso ⬇
 [**DATA ENRICHMENT & RECOMMENDATION SYSTEM (2025)**](https://github.com/panuozzo77/internship-book-recommending-system/blob/main/Tesi_Cristian_Porzio.pdf)
 
 Progettazione e implementazione di un'architettura modulare per l'arricchimento di dataset librari e di un motore di raccomandazione ibrido basato su ricerca vettoriale.
-
----
-
-## [Qui pubblico cosa sto studiando](studying.md)
-
 
 ---
 ## Progetti Universitari
