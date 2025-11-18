@@ -6,10 +6,17 @@ layout: blog
   <div class="prose">
     <h1>{{ page.title }}</h1>
     <p style="color:var(--text-tertiary);font-size:14px;margin-top:-16px;">{{ page.date | date: "%b %d, %Y" }}</p>
+    {% if page.tags %}
+      <div style="margin-bottom:16px;">
+        {% for tag in page.tags %}
+          <span class="tag">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
     {{ content }}
   </div>
 </article>
 
 <div style="margin-top:48px">
-  <a class="btn-secondary" href="{{ '/blog' | relative_url }}">← Back</a>
+  <a class="btn-secondary" href="{{ '/blog' | relative_url }}">← Indietro</a>
 </div>
