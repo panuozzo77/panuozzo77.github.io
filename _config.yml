@@ -5,3 +5,8 @@ remote_theme: pages-themes/minimal
 plugins:
 
 - jekyll-remote-theme
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
