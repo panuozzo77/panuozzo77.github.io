@@ -39,7 +39,7 @@ In questo modo non devo impazzire a modificare i temi Jekill (come quello del mi
 ## Non è il primo blog
 Qualcuno si ricorderà che questo non è affatto il mio primo blog che abbia mai creato. Precedentemente avevo creato **cristianporzio.work** però pagavo il dominio... però c'era sempre qualcosa che non mi piaceva nell'hostarlo da CloudFlare... però non mi piaceva il fatto che fosse così 'bloccato' e appena iniziassi a toccare l'html iniziasse ad esplodere. 
 
-Così, facendo sto partendo da qualcosa di decisamente più semplice che mi sarà più facile espandere. Ad esempio, vorrei includere:
+Così facendo, sto partendo da qualcosa di decisamente più semplice che mi sarà più facile espandere. Ad esempio, vorrei includere:
 - un filtro per la ricerca in base ai tag.
 - un archivio dei post per mese.
 - ho in mente di creare una sorta di divisione per argomenti, non solo per i tag. Es: i progetti di domotica, i progetti di roba software, pensieri personali, insomma, roba.
