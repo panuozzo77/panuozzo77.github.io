@@ -4,6 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ page.title }}</title>
+
+    <!-- Open Graph & Twitter Card Tags -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}">
+    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    {% if page.layout == 'post' %}
+    <meta property="og:type" content="article">
+    {% else %}
+    <meta property="og:type" content="website">
+    {% endif %}
+    <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
     <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&family=SF+Pro+Text:wght@300;400;500;600&display=swap" rel="stylesheet">
