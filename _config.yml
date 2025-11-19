@@ -12,6 +12,9 @@ collections:
   posts:
     output: true
     permalink: /blog/:year/:month/:title/
+  notes:
+    output: true
+    permalink: /notes/:year/:month/:day/:title/
 future: true
 
 # Pagination settings

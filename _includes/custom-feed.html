@@ -1,0 +1,21 @@
+<div class="feed-container">
+  <div class="feed-header">
+    <h3>Canale: {{ include.topic | capitalize }}</h3>
+  </div>
+
+  {% assign filtered_notes = site.notes | where: "subject", include.topic | sort: 'date' | reverse %}
+
+  {% if filtered_notes.size > 0 %}
+    <div class="timeline">
+      {% for note in filtered_notes %}
+        <div class="timeline-card">
+          <span class="meta-date">{{ note.date | date: "%d/%m/%y" }}</span>
+          <h4><a href="{{ note.url }}">{{ note.title }}</a></h4>
+          <p>{{ note.excerpt | strip_html | truncatewords: 20 }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>Nessun aggiornamento in questo feed.</p>
+  {% endif %}
+</div>
