@@ -135,3 +135,73 @@
     }
   });
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const topicButtons = document.querySelectorAll('.topic-button');
+    const feedWrappers = document.querySelectorAll('.feed-wrapper');
+
+    if (topicButtons.length > 0) {
+      // Show the first feed by default
+      const firstTopic = topicButtons[0].dataset.topic;
+      document.getElementById(`feed-${firstTopic}`).style.display = 'block';
+      topicButtons[0].classList.add('active');
+
+      topicButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const topic = this.dataset.topic;
+
+          // Hide all feeds
+          feedWrappers.forEach(wrapper => {
+            wrapper.style.display = 'none';
+          });
+
+          // Show the selected feed
+          document.getElementById(`feed-${topic}`).style.display = 'block';
+
+          // Update active button
+          topicButtons.forEach(btn => {
+            btn.classList.remove('active');
+          });
+          this.classList.add('active');
+        });
+      });
+    }
+  });
+</script>
+
+<script>
+  // Drag-to-scroll for the topic selector
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.topic-selector');
+    if (!slider) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active-drag');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active-drag');
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active-drag');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll-fast
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  });
+</script>

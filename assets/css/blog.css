@@ -24,7 +24,9 @@
 .timeline {
   position: relative;
   padding-left: 27px;
-  border-left: 2px solid var(--border);
+  border-left: 3px solid var(--border);
+  max-width: 700px; /* Imposta una larghezza massima per la timeline */
+  margin: 0 auto; /* Centra la timeline orizzontalmente */
 }
 
 .timeline-card {
@@ -67,4 +69,40 @@
   font-size: 16px;
   color: var(--text-secondary);
   margin-bottom: 0;
+}
+/* Topic Selector Styles */
+.topic-selector {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  overflow-x: auto; /* Abilita lo scorrimento orizzontale */
+  padding: 4px 0; /* Aggiunge un po' di spazio per l'ombra */
+  -webkit-overflow-scrolling: touch; /* Abilita lo scorrimento "cinetico" su mobile */
+  scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
+}
+
+.topic-selector::-webkit-scrollbar {
+  display: none; /* Nasconde la scrollbar su Chrome, Safari, e Opera */
+}
+
+.topic-button {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.topic-button:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.topic-button.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
 }

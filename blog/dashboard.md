@@ -1,19 +1,21 @@
 ---
 layout: blog
-title: "Il mio Hub"
+title: "Dashboard"
 permalink: /feed/
 ---
 
-<div class="dashboard-grid">
-  <div class="col">
-    {% include custom-feed.html topic="leetcode" %}
-  </div>
-
-  <div class="col">
-    {% include custom-feed.html topic="updates" %}
-  </div>
+<div class="topic-selector">
+  {% for topic in site.data.topics %}
+    <button class="topic-button" data-topic="{{ topic.id }}">
+      {{ topic.emoji }} {{ topic.name }}
+    </button>
+  {% endfor %}
 </div>
 
-<style>
-  .dashboard-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-</style>
+<div class="feeds-container">
+  {% for topic in site.data.topics %}
+    <div class="feed-wrapper" id="feed-{{ topic.id }}" style="display: none;">
+      {% include custom-feed.html topic=topic.id %}
+    </div>
+  {% endfor %}
+</div>

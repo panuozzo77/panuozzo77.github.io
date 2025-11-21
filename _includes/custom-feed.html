@@ -1,7 +1,9 @@
 <div class="feed-container">
+  <!--
   <div class="feed-header">
     <h3>Canale: {{ include.topic | capitalize }}</h3>
   </div>
+  -->
 
   {% assign filtered_notes = site.notes | where: "subject", include.topic | sort: 'date' | reverse %}
 
