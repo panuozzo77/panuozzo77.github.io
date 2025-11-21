@@ -46,11 +46,13 @@
     <header style="background:var(--blur-bg);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100">
         <div class="container">
             <nav style="display:flex;justify-content:space-between;align-items:center;padding:16px 0">
-                {% if page.layout == 'post' or page.url == '/blog/info/' %}
-                  <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog' | relative_url }}">Indietro</a>
-                {% else %}
-                  <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog/info' | relative_url }}">Info</a>
-                {% endif %}
+              {% if page.layout == 'note' %}
+                <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/feed' | relative_url }}">Indietro</a>
+              {% elsif page.layout == 'post' or page.url == '/blog/info/' %}
+                <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog' | relative_url }}">Indietro</a>
+              {% else %}
+                <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog/info' | relative_url }}">Info</a>
+              {% endif %}
                 <ul style="display:flex;list-style:none;gap:32px;margin:0;padding:0" class="nav-links">
                     <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/' | relative_url }}">Portfolio</a></li>
                     <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="https://panuozzo77.github.io/LiteraryLog/">LiteraryLog</a></li>
@@ -139,30 +141,45 @@
   document.addEventListener('DOMContentLoaded', function () {
     const topicButtons = document.querySelectorAll('.topic-button');
     const feedWrappers = document.querySelectorAll('.feed-wrapper');
+    const storageKey = 'selectedTopic';
+
+    function showFeed(topicId) {
+      // Hide all feeds
+      feedWrappers.forEach(wrapper => {
+        wrapper.style.display = 'none';
+      });
+      // Deactivate all buttons
+      topicButtons.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      // Show the selected feed and activate the button
+      const feedToShow = document.getElementById(`feed-${topicId}`);
+      const buttonToActivate = document.querySelector(`.topic-button[data-topic="${topicId}"]`);
+      
+      if (feedToShow && buttonToActivate) {
+        feedToShow.style.display = 'block';
+        buttonToActivate.classList.add('active');
+      }
+    }
 
     if (topicButtons.length > 0) {
-      // Show the first feed by default
-      const firstTopic = topicButtons[0].dataset.topic;
-      document.getElementById(`feed-${firstTopic}`).style.display = 'block';
-      topicButtons[0].classList.add('active');
+      // Check for a saved topic in sessionStorage
+      const savedTopic = sessionStorage.getItem(storageKey);
+
+      if (savedTopic) {
+        showFeed(savedTopic);
+      } else {
+        // Show the first feed by default if nothing is saved
+        const firstTopic = topicButtons[0].dataset.topic;
+        showFeed(firstTopic);
+      }
 
       topicButtons.forEach(button => {
         button.addEventListener('click', function () {
           const topic = this.dataset.topic;
-
-          // Hide all feeds
-          feedWrappers.forEach(wrapper => {
-            wrapper.style.display = 'none';
-          });
-
-          // Show the selected feed
-          document.getElementById(`feed-${topic}`).style.display = 'block';
-
-          // Update active button
-          topicButtons.forEach(btn => {
-            btn.classList.remove('active');
-          });
-          this.classList.add('active');
+          sessionStorage.setItem(storageKey, topic); // Save the selected topic
+          showFeed(topic);
         });
       });
     }

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: note
 title: "Analisi Algoritmo Dijkstra"
 date: 2025-11-20
 subject: leetcode

@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: "Dashboard"
+title: "Il Feed"
 permalink: /feed/
 ---
 
