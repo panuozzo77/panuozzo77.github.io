@@ -21,7 +21,7 @@ Ho un grande limite: **non voglio spendere na lira** pertanto le pagine web stat
 ## Come è cominciata la storia del blog
 Ho visto da un gruppo telegram un link che rimandava ad un blog di un certo *fuomag9*, [ecco il link al suo blog](https://fuo.fi/).
 Successivamente, nel suo 'about' leggo che è possibile contattarlo via email, ed allora, vedendo che è un sito statico come quelli che posso hostare, decido di chiedergli: 
-![discussione](/blog/img/2025/email_discussion.png)
+![discussione](/assets/img/2025//11/email_discussion.png)
 
 Come potete capire, non è stato particolarmente collaborativo. Ed io gli ho rubato il template :).
 

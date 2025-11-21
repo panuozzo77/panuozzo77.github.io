@@ -14,7 +14,7 @@ tags:
 
 ## Cosa aspettarsi in un breve futuro
 
-Sto pensando di creare delle specie di bacheche dove pubblicare gli 'aggiornamenti continui'. Un po'come fa RaiNews ![sito rainews](/blog/img/2025/rainews.png) dove si impilano in successione le notizie. Non so bene come far visualizzare sta roba, non come farle. Testerò un po' poi vedremo cosa succederà.
+Sto pensando di creare delle specie di bacheche dove pubblicare gli 'aggiornamenti continui'. Un po'come fa RaiNews ![sito rainews](/assets/img/2025/11/rainews.png) dove si impilano in successione le notizie. Non so bene come far visualizzare sta roba, non come farle. Testerò un po' poi vedremo cosa succederà.
 
 In breve, mi piacerebbe aprire questi micro-post su specifici argomenti dove dico: wow che figata sta cosa x. 
 **Esempio**: sto usando leetcode per esercitarmi un po' con gli esercizi, oltre a perdere un po' di tempo. Giornalmente tento di svolgere 3 esercizi. Mi piacerebbe, dopo aver analizzato il miglior algoritmo che risolva un certo problema (oggi ho scoperto l'Algoritmo di Manacher) di avere la possibilità di appuntarmelo. 
