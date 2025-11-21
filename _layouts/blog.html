@@ -57,8 +57,12 @@
                     <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/' | relative_url }}">Portfolio</a></li>
                     <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="https://panuozzo77.github.io/LiteraryLog/">LiteraryLog</a></li>
                     <!-- <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/blog' | relative_url }}">Posts</a></li> -->
-                    <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/feed' | relative_url }}">Feed</a></li>
-                </ul>
+                    {% if page.url == '/blog/' or page.layout == 'note' %}
+                    <li><a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:16px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/feed' | relative_url }}">Feed</a></li>
+                    {% elsif page.url == '/feed/' or page.layout == 'post' %}
+                    <li><a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:16px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog' | relative_url }}">Blog</a></li>
+                    {% endif %}
+                  </ul>
             </nav>
         </div>
     </header>
