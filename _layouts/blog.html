@@ -18,7 +18,7 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
-    {% if page.layout == 'post' %}
+    {% if page.layout == 'post' or page.url == '/blog/info/' %}
     <meta property="og:type" content="article">
     {% else %}
     <meta property="og:type" content="website">
@@ -46,7 +46,11 @@
     <header style="background:var(--blur-bg);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100">
         <div class="container">
             <nav style="display:flex;justify-content:space-between;align-items:center;padding:16px 0">
-                <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog' | relative_url }}">Blog</a>
+                {% if page.layout == 'post' or page.url == '/blog/info/' %}
+                  <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog' | relative_url }}">Indietro</a>
+                {% else %}
+                  <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog/info' | relative_url }}">Info</a>
+                {% endif %}
                 <ul style="display:flex;list-style:none;gap:32px;margin:0;padding:0" class="nav-links">
                     <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/' | relative_url }}">Portfolio</a></li>
                     <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="https://panuozzo77.github.io/LiteraryLog/">LiteraryLog</a></li>
