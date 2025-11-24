@@ -89,17 +89,38 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  if (topicButtons.length > 0) {
-    // Check for a saved topic in sessionStorage
-    const savedTopic = sessionStorage.getItem(storageKey);
+  function getTopicFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get('topic');
+  }
 
-    if (savedTopic) {
-      showFeed(savedTopic);
+  function topicExists(topicId) {
+    return !!document.querySelector(`.topic-button[data-topic="${topicId}"]`);
+  }
+
+  if (topicButtons.length > 0) {
+    let topicToLoad = null;
+    const urlTopic = getTopicFromURL();
+
+    // Priority 1: URL parameter
+    if (urlTopic && topicExists(urlTopic)) {
+      topicToLoad = urlTopic;
+      sessionStorage.setItem(storageKey, topicToLoad);
+      // Clean the URL
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
     } else {
-      // Show the first feed by default if nothing is saved
-      const firstTopic = topicButtons[0].dataset.topic;
-      showFeed(firstTopic);
+      // Priority 2: Session Storage
+      const savedTopic = sessionStorage.getItem(storageKey);
+      if (savedTopic && topicExists(savedTopic)) {
+        topicToLoad = savedTopic;
+      } else {
+        // Priority 3: Default (first topic)
+        topicToLoad = topicButtons[0].dataset.topic;
+      }
     }
+    
+    showFeed(topicToLoad);
 
     topicButtons.forEach(button => {
       button.addEventListener('click', function () {
