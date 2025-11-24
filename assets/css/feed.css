@@ -1,0 +1,107 @@
+/* Dashboard & Timeline Styles */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feed-container {
+  height: 100%;
+}
+
+.feed-header h3 {
+  margin-bottom: 24px;
+  font-size: 24px;
+}
+
+.timeline {
+  position: relative;
+  padding-left: 27px;
+  border-left: 3px solid var(--border);
+  max-width: 700px; /* Imposta una larghezza massima per la timeline */
+  margin: 0 auto; /* Centra la timeline orizzontalmente */
+}
+
+.timeline-card {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+/* This pseudo-element is now attached to the h4 for better vertical alignment */
+.timeline-card h4::before {
+  content: '';
+  position: absolute;
+  left: -38px; /* Adjusted for perfect centering on the line */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  border: 2px solid var(--bg-primary);
+}
+
+.timeline-card .meta-date {
+  font-size: 14px;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.timeline-card h4 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  position: relative; /* This is necessary to position the ::before pseudo-element relative to the h4 */
+}
+
+.timeline-card h4 a {
+  color: var(--text-primary);
+}
+
+.timeline-card p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+/* Topic Selector Styles */
+.topic-selector {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  overflow-x: auto; /* Abilita lo scorrimento orizzontale */
+  padding: 4px 0; /* Aggiunge un po' di spazio per l'ombra */
+  -webkit-overflow-scrolling: touch; /* Abilita lo scorrimento "cinetico" su mobile */
+  scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
+}
+
+.topic-selector::-webkit-scrollbar {
+  display: none; /* Nasconde la scrollbar su Chrome, Safari, e Opera */
+}
+
+.topic-button {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.topic-button:hover {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.topic-button.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}

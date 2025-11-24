@@ -26,6 +26,9 @@
     <meta name="twitter:card" content="summary">
     <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
+    {% if page.url == '/feed/' %}
+    <link rel="stylesheet" href="{{ '/assets/css/feed.css' | relative_url }}">
+    {% endif %}
 
     <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/img/favicon/apple-icon-57x57.png' | relative_url }}">
     <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/img/favicon/apple-icon-60x60.png' | relative_url }}">
@@ -78,4 +81,8 @@
     </footer>
 </body>
 </html>
-<script src="{{ '/assets/js/blog.js' | relative_url }}"></script>
+{% if page.url == '/blog/' %}
+  <script src="{{ '/assets/js/blog-index.js' | relative_url }}"></script>
+{% elsif page.url == '/feed/' %}
+  <script src="{{ '/assets/js/feed.js' | relative_url }}"></script>
+{% endif %}
