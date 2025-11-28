@@ -1,0 +1,529 @@
+/* Immersive Mode Styles */
+body.immersive {
+    overflow: hidden;
+    /* Prevent scrolling on homepage */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    /* Fallback */
+}
+
+/* Aurora Background Animation */
+body.immersive::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%,
+            rgba(255, 255, 255, 0.8) 0%,
+            rgba(200, 220, 255, 0.4) 30%,
+            rgba(230, 200, 255, 0.4) 60%,
+            rgba(255, 255, 255, 0.8) 100%);
+    animation: aurora 20s infinite linear;
+    z-index: -1;
+    filter: blur(60px);
+}
+
+@keyframes aurora {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Transparent Header for Immersive Mode */
+body.immersive .site-header {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    border-bottom: none !important;
+}
+
+#immersive-bubble-container {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* Tooltip Styling Update */
+.tooltip {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ... (Keep existing styles for other pages) ... */
+:root {
+    /* Light Mode Palette based on Blog's structure */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f7;
+    /* Apple-like light gray */
+    --bg-tertiary: #e5e5ea;
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-tertiary: #6e6e73;
+    --accent: #0071e3;
+    /* Apple Blue */
+    --accent-hover: #0077ed;
+    --border: #d2d2d7;
+    --blur-bg: rgba(255, 255, 255, 0.8);
+    --card-radius: 24px;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    line-height: 1.5;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1200px;
+    /* Wider container for the grid */
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Bento Grid Layout */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(180px, auto);
+    gap: 24px;
+    padding-bottom: 48px;
+}
+
+/* Card Styles */
+.bento-card {
+    background: var(--bg-secondary);
+    border-radius: var(--card-radius);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-decoration: none;
+    color: var(--text-primary);
+    border: 1px solid transparent;
+}
+
+.bento-card:hover {
+    background: #fff;
+    transform: scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    border-color: rgba(0, 0, 0, 0.05);
+    z-index: 2;
+}
+
+/* Card Sizes */
+.col-span-1 {
+    grid-column: span 1;
+}
+
+.col-span-2 {
+    grid-column: span 2;
+}
+
+.col-span-3 {
+    grid-column: span 3;
+}
+
+.col-span-4 {
+    grid-column: span 4;
+}
+
+.row-span-1 {
+    grid-row: span 1;
+}
+
+.row-span-2 {
+    grid-row: span 2;
+}
+
+/* Specific Card Styles */
+.profile-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+}
+
+.profile-info p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    max-width: 400px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(52, 199, 89, 0.1);
+    color: #34c759;
+    padding: 6px 12px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: currentColor;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.project-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    background: #e5e5ea;
+}
+
+.card-title {
+    font-family: 'SF Pro Display', sans-serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.card-subtitle {
+    font-size: 15px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+    font-weight: 500;
+}
+
+.card-desc {
+    font-size: 15px;
+    color: var(--text-tertiary);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 24px;
+}
+
+.tech-tag {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.05);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.social-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: var(--text-primary);
+}
+
+.social-card:hover {
+    color: var(--accent);
+}
+
+/* Card Lists (Hobbies, Thoughts) */
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 16px;
+}
+
+.card-list li {
+    margin-bottom: 12px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: inherit;
+    opacity: 0.9;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+/* Hero Section for Portfolio */
+.hero {
+    text-align: center;
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 48px;
+}
+
+.hero img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 24px;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.hero p {
+    font-size: 21px;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 32px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    list-style: none;
+    padding: 0;
+}
+
+.social-links a {
+    color: var(--text-secondary);
+    font-size: 24px;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+}
+
+/* Card Styles */
+.card {
+    background: var(--bg-secondary);
+    border: 1px solid transparent;
+    /* No border in light mode usually looks cleaner, or subtle */
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: all .2s ease;
+}
+
+.card:hover {
+    background: var(--bg-tertiary);
+    transform: scale(1.01);
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 36px;
+    line-height: 1.3;
+    margin-top: 48px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+p {
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Buttons & Tags */
+.tag {
+    background: var(--bg-tertiary);
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 12px;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background .2s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    color: white;
+    text-decoration: none;
+}
+
+/* Grid */
+.grid {
+    display: grid;
+    grid-gap: 24px;
+    gap: 24px;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+}
+
+/* Prose (Content) */
+.prose h1,
+.prose h2,
+.prose h3 {
+    margin-top: 48px;
+}
+
+.prose p {
+    color: var(--text-primary);
+    /* Darker text for main content readability */
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .col-span-3,
+    .col-span-4 {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    .hero {
+        padding: 48px 0 32px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .col-span-1,
+    .col-span-2,
+    .col-span-3,
+    .col-span-4 {
+        grid-column: span 1;
+    }
+
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-info p {
+        margin: 0 auto;
+    }
+}
