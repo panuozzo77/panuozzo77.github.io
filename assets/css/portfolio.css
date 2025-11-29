@@ -114,7 +114,7 @@ body {
     border-radius: var(--card-radius);
     padding: 32px;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; Removed to fix hover artifact */
     transition: var(--transition);
     display: flex;
     flex-direction: column;
@@ -560,4 +560,132 @@ a:hover {
     .profile-info p {
         margin: 0 auto;
     }
+}
+
+/* Studying Page Styles */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    margin-top: 12px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.rich-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.rich-list-item {
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.rich-list-item:last-child {
+    border-bottom: none;
+}
+
+.rich-list-icon {
+    font-size: 24px;
+    color: var(--text-secondary);
+    width: 32px;
+    text-align: center;
+}
+
+.rich-list-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.rich-list-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.rich-list-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Tools Toggle Styles */
+.tools-toggle {
+    width: 100%;
+}
+
+.tools-toggle[open] .summary-icon {
+    transform: rotate(180deg);
+}
+
+.tools-summary {
+    list-style: none;
+    padding: 24px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: background 0.2s ease;
+    position: relative;
+}
+
+.tools-summary::-webkit-details-marker {
+    display: none;
+}
+
+.tools-summary:hover {
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.summary-text {
+    transition: opacity 0.2s ease;
+}
+
+.hover-text {
+    position: absolute;
+    left: 24px;
+    opacity: 0;
+    color: var(--accent);
+    transition: opacity 0.2s ease;
+}
+
+.tools-summary:hover .summary-text {
+    opacity: 0;
+}
+
+.tools-summary:hover .hover-text {
+    opacity: 1;
+}
+
+.summary-icon {
+    transition: transform 0.3s ease;
+    color: var(--text-secondary);
+}
+
+.tools-close-area {
+    padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    transition: background 0.2s ease;
+}
+
+.tools-close-area:hover {
+    background: rgba(0, 0, 0, 0.02);
 }
