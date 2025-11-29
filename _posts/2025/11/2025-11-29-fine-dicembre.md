@@ -35,7 +35,7 @@ Tempo addietro invece avevo usato come terminale `Alacritty` ma boh, non c'è st
 - Scrivendo da una umile tastiera da 1000Hz ed un mouse da 8000Hz
 
 
-E,  tutto ciò, nonostante:
+E, nonostante:
 -  la velocità del mouse e la velocità della tastiera, 
 -  la velocità del monitor, 
 -  la velocità del processore, 
@@ -50,3 +50,11 @@ E,  tutto ciò, nonostante:
 -  la velocità della cache L3
 
 **HO REINSTALLATO ALACRITTY** 🤡
+
+## Prossimi passi
+
+- Entro un tempo ragionevole (la fine dell'anno) vorrei effettuare un restyling anche a LiteraryLog. Vedremo cosa ne verrà fuori. 
+- Per il momento mi reputo soddisfatto del Blog. Non mi reputo soddisfatto di me stesso e nelle mie abilità di *postaggio*. <br>
+Non credo che ci siano abilità da migliorare in me stesso, bensì dovrei cercare di proporre una rubrica su qualcosa di interessante, proprio per dare uno scopo al Feed...
+    - io non è che abbia creato il blog per essere letto, l'ho creato per avere qualcosa in più da manutenere, e per avere un luogo dove posso esprimere le mie idee col vincolo che però queste siano pubbliche.<br>Però senza template presi chissà dove, senza limiti su cosa posso far apparire su queste pagine, senza censure sulla decenza.
+    - se poi un malcapitato decide di leggerlo, allora è un bonus e potrebbe farsi un'idea (tremenda) di me. <br>(parlo proprio di voi, Recruiters).
