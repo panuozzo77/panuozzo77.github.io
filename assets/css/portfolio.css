@@ -124,12 +124,45 @@ body {
     border: 1px solid transparent;
 }
 
-.bento-card:hover {
+/* Specific Card Backgrounds */
+.card-featured {
+    background: #fff;
+}
+
+.card-studying {
+    background: #f0f0f5;
+}
+
+.card-thoughts {
+    background: #1d1d1f;
+    color: white;
+}
+
+.card-thoughts .card-title {
+    color: white;
+}
+
+.card-literary {
+    background: #fff9f0;
+    border-color: #ffeebb !important;
+}
+
+.card-blog {
+    background: #fbf0ff;
+    border-color: #ebdcfc !important;
+}
+
+/* Hover State - Increased Specificity */
+body .bento-card:hover {
     background: #fff;
     transform: scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-    border-color: rgba(0, 0, 0, 0.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06) !important;
+    border-color: rgba(0, 0, 0, 0.05) !important;
     z-index: 2;
+}
+
+body .bento-card:hover .card-title {
+    color: var(--text-primary);
 }
 
 /* Card Sizes */
@@ -250,6 +283,7 @@ body {
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 3;
+    line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
