@@ -55,4 +55,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }, observerOptions);
 
     headers.forEach(header => observer.observe(header));
+
+    // Handle bottom of page case
+    window.addEventListener('scroll', () => {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+            document.querySelectorAll('.toc-link').forEach(link => link.classList.remove('active'));
+            const allLinks = document.querySelectorAll('.toc-link');
+            if (allLinks.length > 0) {
+                allLinks[allLinks.length - 1].classList.add('active');
+            }
+        }
+    });
 });
