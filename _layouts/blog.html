@@ -1,88 +1,127 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: " en-US" }}">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
 
-    <!-- Open Graph & Twitter Card Tags -->
-    <meta property="og:title" content="{{ page.title | default: site.title }}">
-    <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
-    {% if page.anteprima %}
-    <meta property="og:image" content="{{ page.anteprima | absolute_url }}">
-    <meta name="twitter:image" content="{{ page.anteprima | absolute_url }}">
-    {% else %}
-    <meta property="og:image" content="{{ '/assets/img/og_share.png' | absolute_url }}">
-    <meta name="twitter:image" content="{{ '/assets/img/og_share.png' | absolute_url }}">
-    {% endif %}
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:url" content="{{ page.url | absolute_url }}">
-    {% if page.layout == 'post' or page.url == '/blog/info/' %}
-    <meta property="og:type" content="article">
-    {% else %}
-    <meta property="og:type" content="website">
-    {% endif %}
-    <meta name="twitter:card" content="summary">
-    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
-    {% if page.url == '/feed/' %}
-    <link rel="stylesheet" href="{{ '/assets/css/feed.css' | relative_url }}">
-    {% endif %}
+  {% if page.layout == 'post' %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "{{ page.title }}",
+      "datePublished": "{{ page.date | date_to_xmlschema }}",
+      "description": "{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ page.url | absolute_url }}"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "{{ site.title }}"
+      }
+    }
+    </script>
+  {% endif %}
 
-    <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/img/favicon/apple-icon-57x57.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/img/favicon/apple-icon-60x60.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/img/favicon/apple-icon-72x72.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="76x76" href="{{ '/assets/img/favicon/apple-icon-76x76.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="114x114" href="{{ '/assets/img/favicon/apple-icon-114x114.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="120x120" href="{{ '/assets/img/favicon/apple-icon-120x120.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/img/favicon/apple-icon-144x144.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/img/favicon/apple-icon-152x152.png' | relative_url }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicon/apple-icon-180x180.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="192x192"  href="{{ '/assets/img/favicon/android-icon-192x192.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon/favicon-32x32.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/img/favicon/favicon-96x96.png' | relative_url }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/favicon/favicon-16x16.png' | relative_url }}">
-    <link rel="manifest" href="{{ '/assets/img/favicon/manifest.json' | relative_url }}">
+  <!-- Open Graph & Twitter Card Tags -->
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:description"
+    content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace }}">
+  {% if page.anteprima %}
+  <meta property="og:image" content="{{ page.anteprima | absolute_url }}">
+  <meta name="twitter:image" content="{{ page.anteprima | absolute_url }}">
+  {% else %}
+  <meta property="og:image" content="{{ '/assets/img/og_share.png' | absolute_url }}">
+  <meta name="twitter:image" content="{{ '/assets/img/og_share.png' | absolute_url }}">
+  {% endif %}
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  {% if page.layout == 'post' or page.url == '/blog/info/' %}
+  <meta property="og:type" content="article">
+  {% else %}
+  <meta property="og:type" content="website">
+  {% endif %}
+  <meta name="twitter:card" content="summary">
+  <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
+  {% if page.url == '/feed/' %}
+  <link rel="stylesheet" href="{{ '/assets/css/feed.css' | relative_url }}">
+  {% endif %}
+
+  <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/img/favicon/apple-icon-57x57.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/img/favicon/apple-icon-60x60.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/img/favicon/apple-icon-72x72.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="76x76" href="{{ '/assets/img/favicon/apple-icon-76x76.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="114x114" href="{{ '/assets/img/favicon/apple-icon-114x114.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="120x120" href="{{ '/assets/img/favicon/apple-icon-120x120.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/img/favicon/apple-icon-144x144.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="152x152" href="{{ '/assets/img/favicon/apple-icon-152x152.png' | relative_url }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/favicon/apple-icon-180x180.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="192x192"
+    href="{{ '/assets/img/favicon/android-icon-192x192.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/favicon/favicon-32x32.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ '/assets/img/favicon/favicon-96x96.png' | relative_url }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/favicon/favicon-16x16.png' | relative_url }}">
+  <link rel="manifest" href="{{ '/assets/img/favicon/manifest.json' | relative_url }}">
 </head>
+
 <body>
-    <header style="background:var(--blur-bg);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100">
-        <div class="container">
-            <nav style="display:flex;justify-content:space-between;align-items:center;padding:16px 0">
-              {% if page.layout == 'note' %}
-                <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/feed' | relative_url }}">Indietro</a>
-              {% elsif page.layout == 'post' or page.url == '/blog/info/' %}
-                <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog' | relative_url }}">Indietro</a>
-              {% else %}
-                <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog/info' | relative_url }}">Info</a>
-              {% endif %}
-                <ul style="display:flex;list-style:none;gap:32px;margin:0;padding:0" class="nav-links">
-                    <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/' | relative_url }}">Portfolio</a></li>
-                    <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="https://panuozzo77.github.io/LiteraryLog/">LiteraryLog</a></li>
-                    <!-- <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/blog' | relative_url }}">Posts</a></li> -->
-                    {% if page.url == '/blog/' or page.layout == 'note' %}
-                    <li><a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:16px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/feed' | relative_url }}">Feed</a></li>
-                    {% elsif page.url == '/feed/' or page.layout == 'post' %}
-                    <li><a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:16px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em" href="{{ '/blog' | relative_url }}">Blog</a></li>
-                    {% endif %}
-                  </ul>
-            </nav>
-        </div>
-    </header>
-    <main style="min-height:calc(100vh - 80px);padding:48px 0">
-        <div class="container">
-            {{ content }}
-        </div>
-    </main>
-    <footer style="border-top:1px solid var(--border);text-align:center;padding:48px 0;margin-top:80px">
-        <div class="container">
-            <p style="color:var(--text-tertiary);font-size:14px;margin:0">© {{ "now" | date: "%Y" }} {{ site.title }}.</p>
-        </div>
-    </footer>
+  <header
+    style="background:var(--blur-bg);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100">
+    <div class="container">
+      <nav style="display:flex;justify-content:space-between;align-items:center;padding:16px 0">
+        {% if page.layout == 'note' %}
+        <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em"
+          href="{{ '/feed' | relative_url }}">Indietro</a>
+        {% elsif page.layout == 'post' or page.url == '/blog/info/' %}
+        <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em"
+          href="javascript:history.back()">Indietro</a>
+        {% else %}
+        <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em"
+          href="{{ '/blog/info' | relative_url }}">Info</a>
+        {% endif %}
+        <ul style="display:flex;list-style:none;gap:32px;margin:0;padding:0" class="nav-links">
+          <li><a
+              style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease"
+              href="{{ '/' | relative_url }}">Portfolio</a></li>
+          <li><a
+              style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease"
+              href="https://panuozzo77.github.io/LiteraryLog/">LiteraryLog</a></li>
+          <!-- <li><a style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease" href="{{ '/blog' | relative_url }}">Posts</a></li> -->
+          {% if page.url == '/blog/' or page.layout == 'note' %}
+          <li><a
+              style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:16px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em"
+              href="{{ '/feed' | relative_url }}">Feed</a></li>
+          {% elsif page.url == '/feed/' or page.layout == 'post' %}
+          <li><a
+              style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:16px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em"
+              href="{{ '/blog' | relative_url }}">Blog</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main style="min-height:calc(100vh - 80px);padding:48px 0">
+    <div class="container">
+      {{ content }}
+    </div>
+  </main>
+  <footer style="border-top:1px solid var(--border);text-align:center;padding:48px 0;margin-top:80px">
+    <div class="container">
+      <p style="color:var(--text-tertiary);font-size:14px;margin:0">© {{ "now" | date: "%Y" }} {{ site.title }}.</p>
+    </div>
+  </footer>
 </body>
+
 </html>
 {% if page.url == '/blog/' %}
-  <script src="{{ '/assets/js/blog-index.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/blog-index.js' | relative_url }}"></script>
 {% elsif page.url == '/feed/' %}
-  <script src="{{ '/assets/js/feed.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/feed.js' | relative_url }}"></script>
 {% endif %}

@@ -6,6 +6,7 @@ excerpt: "Restyling al portfolio e qualche update su di me."
 tags:
   - work-in-progress
   - features
+  - blog
 ---
 
 ## Portfolio

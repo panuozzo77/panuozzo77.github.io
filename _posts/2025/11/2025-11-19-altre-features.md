@@ -6,6 +6,7 @@ excerpt: "Parlo di cosa ho fatto al blog ultimamente e qualche feature che svilu
 tags:
   - work-in-progress
   - features
+  - blog
 ---
 
 ## Cosa ho fatto

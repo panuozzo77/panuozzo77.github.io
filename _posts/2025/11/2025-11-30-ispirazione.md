@@ -4,7 +4,7 @@ title: "L'ispirazione!"
 date: 2025-11-30
 anteprima: /assets/img/posts/2025/11/copertina.jpg
 excerpt: "Cercando di capire cosa scrivere qui."
-tags:
+tags: libri antirez blog github
 ---
 
 Stanotte mi sono imbattuto nel blog di Antirez (Salvatore Sanfilippo) ma non avevo sufficienti neuroni per poter digerire quello che aveva scritto pochi giorni fa nel [suo ultimo post](https://antirez.com/news/156). Contemporaneamente, non so che giri io abbia fatto ma sono capitato su una Repository di GitHub, [questa](https://github.com/scynthiadunlop/WritingForDevelopersBook)
