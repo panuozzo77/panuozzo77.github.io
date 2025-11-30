@@ -161,7 +161,8 @@ a:hover {
 .prose h6 {
     margin-top: 48px;
     margin-bottom: 16px;
-    color: var(--text-primary)
+    color: var(--text-primary);
+    clear: both;
 }
 
 .prose h1:first-child,
@@ -177,11 +178,28 @@ a:hover {
 }
 
 .prose pre {
-    border: 1px solid var(--border);
-    border-radius: 8px;
     padding: 16px;
     overflow-x: auto;
-    margin: 24px 0
+    margin: 0;
+}
+
+.prose .highlighter-rouge {
+    width: fit-content;
+    max-width: 100%;
+    float: left;
+    clear: left;
+    margin-right: 24px;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    border-radius: 24px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+}
+
+.prose::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .prose code,
