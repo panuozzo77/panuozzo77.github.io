@@ -1,5 +1,6 @@
 certifications:
   available:
+    - name: "John Thompson: Spring Boot 4, Spring Framework 7: Beginner to Guru"
     - name: "Red Hat Enterprise Linux Automation with Ansible 9.0"
     - name: "Red Hat OpenStack Administration I: Core Operations for Domain Operators 16.1"
     - name: "Red Hat Application Development I: Programming in Java EE 7.0"
