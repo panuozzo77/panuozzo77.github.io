@@ -7,6 +7,7 @@ layout: null
       "title": "{{ post.title | escape }}",
       "excerpt": "{{ post.excerpt | strip_html | normalize_whitespace | escape }}",
       "tags": "{{ post.tags | join: ', ' }}",
+      "date": "{{ post.date | date: "%Y-%m-%d" }}",
       "url": "{{ post.url | relative_url }}"
     }
     {% unless forloop.last %},{% endunless %}

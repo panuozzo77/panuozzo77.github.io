@@ -18,7 +18,7 @@
 
                 {% if page.url contains '/blog/' or page.layout == 'note' %}
                 <li><a href="{{ '/feed' | relative_url }}">Feed</a></li>
-                {% elsif page.url == '/feed/' or page.layout == 'post' %}
+                {% elsif page.url == '/feed/' or page.layout == 'post' or page.url contains 'archive' %}
                 <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
                 {% else %}
                 <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
