@@ -18,7 +18,7 @@
   <script src="https://code.jquery.com/jquery-1.12.4.min.js"
     integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
   <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="apple-touch-icon" sizes="57x57" href="{{ '/assets/img/favicon/apple-icon-57x57.png' | relative_url }}">
   <link rel="apple-touch-icon" sizes="60x60" href="{{ '/assets/img/favicon/apple-icon-60x60.png' | relative_url }}">
@@ -54,27 +54,7 @@
 </head>
 
 <body class="{{ page.layout }}">
-  <header
-    style="background:rgba(255, 255, 255, 0.8);backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100"
-    class="site-header">
-    <div class="container">
-      <nav style="display:flex;justify-content:space-between;align-items:center;padding:16px 0">
-        <a style="font-family:'SF Pro Display', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;font-size:20px;font-weight:600;color:var(--text-primary);text-decoration:none;letter-spacing:-0.01em"
-          href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name }}</a>
-
-        <ul style="display:flex;list-style:none;gap:32px;margin:0;padding:0" class="nav-links">
-          <li><a style="text-decoration:none;color:var(--text-primary);font-weight:500;font-size:16px;"
-              href="{{ '/' | relative_url }}">Portfolio</a></li>
-          <li><a
-              style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease"
-              href="https://panuozzo77.github.io/LiteraryLog/">LiteraryLog</a></li>
-          <li><a
-              style="text-decoration:none;color:var(--text-secondary);font-weight:400;font-size:16px;transition:color 0.2s ease"
-              href="{{ '/blog' | relative_url }}">Blog</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  {% include navbar.html %}
 
   <main style="min-height:calc(100vh - 80px);padding:48px 0">
     <div class="container">

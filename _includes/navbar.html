@@ -1,0 +1,29 @@
+<header class="site-header">
+    <div class="container">
+        <div class="nav-container">
+            {% if page.layout == 'note' %}
+            <a class="site-title" href="{{ '/feed' | relative_url }}">Indietro</a>
+            {% elsif page.layout == 'post' or page.url == '/blog/info/' %}
+            <a class="site-title" href="javascript:history.back()">Indietro</a>
+            {% elsif page.url contains '/blog/' or page.url == '/feed/' %}
+            <a class="site-title" href="{{ '/blog/info' | relative_url }}">Info</a>
+            {% else %}
+            <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | default: site.github.repository_name
+                }}</a>
+            {% endif %}
+
+            <ul class="nav-links">
+                <li><a href="{{ '/' | relative_url }}">Portfolio</a></li>
+                <li><a href="https://panuozzo77.github.io/LiteraryLog/">LiteraryLog</a></li>
+
+                {% if page.url contains '/blog/' or page.layout == 'note' %}
+                <li><a href="{{ '/feed' | relative_url }}">Feed</a></li>
+                {% elsif page.url == '/feed/' or page.layout == 'post' %}
+                <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
+                {% else %}
+                <li><a href="{{ '/blog' | relative_url }}">Blog</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</header>
