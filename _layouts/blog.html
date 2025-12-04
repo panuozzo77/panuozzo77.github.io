@@ -80,7 +80,7 @@
   </script>
 </head>
 
-<body>
+<body class="{% if page.layout == 'post' %}post-layout{% endif %}">
   {% include navbar.html %}
   <main style="min-height:calc(100vh - 80px);padding:48px 0">
     <div class="container">

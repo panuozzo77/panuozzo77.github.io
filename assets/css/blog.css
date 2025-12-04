@@ -318,7 +318,7 @@ a:hover {
     /* Hidden by default */
     position: fixed;
     top: 110px;
-    left: calc(51% - 490px - 260px);
+    left: calc(50% - 600px - 260px);
     /* Center - half container - gap/width */
     width: 240px;
     max-height: calc(100vh - 140px);
@@ -407,10 +407,27 @@ a:hover {
     font-size: 13px;
 }
 
-/* Show only on large screens */
-@media (min-width: 1450px) {
+/* Show on laptop screens with reduced container width */
+@media (min-width: 1250px) and (max-width: 1750px) {
     #toc-container {
         display: block;
+        left: calc(50% - 540px);
+        /* Align closer to content, 1080px effective width */
+    }
+
+    .post-layout main .container {
+        max-width: 800px;
+        margin: 0 calc(50% - 540px) 0 auto;
+        /* Align with right edge of 1080px effective width */
+    }
+}
+
+/* Show only on large screens */
+@media (min-width: 1750px) {
+    #toc-container {
+        display: block;
+        left: calc(50% - 600px - 250px);
+        /* Center - half 1200px container - gap/width */
     }
 }
 
@@ -439,6 +456,14 @@ a:hover {
 
     .prose h2 {
         font-size: 20px !important
+    }
+
+    .prose h3 {
+        font-size: 18px !important
+    }
+
+    .prose h4 {
+        font-size: 16px !important
     }
 }
 
