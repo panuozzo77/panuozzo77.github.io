@@ -92,13 +92,20 @@ a:hover {
     color: var(--accent-hover)
 }
 
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
 .tag {
     background: var(--bg-tertiary);
     color: var(--text-secondary);
     padding: 4px 8px;
     border-radius: 6px;
     font-size: 12px;
-    margin-right: 8px
+    /* margin-right: 8px; Removed in favor of gap */
 }
 
 .btn-primary,
