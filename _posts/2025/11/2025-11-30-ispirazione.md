@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "L'ispirazione!"
+title: "L'i(n)spirazione!"
 date: 2025-11-30
 anteprima: /assets/img/posts/2025/11/copertina.jpg
 excerpt: "Cercando di capire cosa scrivere qui."
