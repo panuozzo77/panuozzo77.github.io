@@ -2,9 +2,11 @@
     <div class="container">
         <div class="nav-container">
             {% if page.layout == 'note' %}
-            <a class="site-title" href="{{ '/feed' | relative_url }}">Indietro</a>
+            <a class="site-title" href="{{ '/feed' | relative_url }}"
+                onclick="if(document.referrer.indexOf(window.location.host) !== -1) { history.back(); return false; }">Indietro</a>
             {% elsif page.layout == 'post' or page.url == '/blog/info/' %}
-            <a class="site-title" href="javascript:history.back()">Indietro</a>
+            <a class="site-title" href="{{ '/blog' | relative_url }}"
+                onclick="if(document.referrer.indexOf(window.location.host) !== -1) { history.back(); return false; }">Indietro</a>
             {% elsif page.url contains '/blog/' or page.url == '/feed/' %}
             <a class="site-title" href="{{ '/blog/info' | relative_url }}">Info</a>
             {% else %}
