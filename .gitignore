@@ -12,3 +12,4 @@ vendor/bundle/
 *.rbc
 *.swp
 .DS_Store
+Gemfile.lock
