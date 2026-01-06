@@ -9,7 +9,7 @@ title: Landing Page
     <div class="bento-card col-span-2 row-span-2 profile-card">
         <img src="{{ '/assets/img/propic/myself.jpg' | relative_url }}" alt="Cristian Porzio" class="profile-image">
         <div class="profile-info">
-            <div class="status-badge"><div class="status-dot"></div>Open to Work</div>
+            <!--<div class="status-badge"><div class="status-dot"></div>Open to Work</div>-->
             <h1>Cristian Porzio</h1>
             <p>Software Developer nato nel 2002. Appassionato di Machine Learning, Ingegneria del Software e Design Pattern.</p>
             <div style="margin-top: 24px; display: flex; align-items: center; gap: 16px;">
@@ -31,6 +31,24 @@ title: Landing Page
             Sempre alla ricerca di nuove sfide per applicare od ampliare le mie conoscenze e crescere professionalmente.
         </p>
     </div>
+
+    <!-- 3. Employment (New) -->
+    <a href="https://www.comune.roma.it/web/it/scheda-servizi.page?contentId=INF765005" class="bento-card col-span-2 row-span-2" style="background:#fff;">
+        <div class="card-content">
+            <h3 class="card-subtitle" style="color:#ff3b30">IMPIEGO ATTUALE (da Dic 2025)</h3>
+            <h2 class="card-title">SIS - Roma Capitale</h2>
+            <p class="card-subtitle" style="margin-bottom: 8px; font-weight: 600;">Java BackEnd Developer</p>
+            <p class="card-desc">Sistema informativo del sottosuolo per la gestione delle pratiche amministrative e delle attività di manutenzione e supporto a cittadini e imprese, inerenti il rilascio di concessioni di suolo per l’esecuzione di scavi.</p>
+            <div class="tech-stack">
+                <span class="tech-tag">Java Spring</span>
+                <span class="tech-tag">Hibernate</span>
+                <span class="tech-tag">JSPX</span>
+                <span class="tech-tag">Legacy MVC</span>
+                <span class="tech-tag">MySQL</span>
+                <span class="tech-tag">Git Flow</span>
+            </div>
+        </div>
+    </a>
 
     <!-- 3. Featured Project (Thesis) -->
     <a href="https://github.com/panuozzo77/internship-book-recommending-system/blob/main/Tesi_Cristian_Porzio.pdf" class="bento-card col-span-2 row-span-2" style="background: #fff;">
