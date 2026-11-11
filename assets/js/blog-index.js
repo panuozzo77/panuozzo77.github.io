@@ -39,6 +39,13 @@
       });
     }
 
+    // "2026-11-08" -> "Nov 08, 2026" (stesso formato di Jekyll "%b %d, %Y")
+    function formatDate(iso) {
+      const [y, m, d] = iso.split('-');
+      const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      return `${months[parseInt(m, 10) - 1]} ${d}, ${y}`;
+    }
+
     function displayPosts(posts) {
       postsContainer.innerHTML = '';
       if (posts.length > 0) {
@@ -46,10 +53,11 @@
           const postTags = post.tags ? post.tags.split(',').map(tag => `<span class="tag">${tag.trim()}</span>`).join('') : '';
           const postElement = `
           <article class="card">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px">
-              <h2 style="margin:0;font-size:28px;word-wrap:break-word;hyphens:auto;line-height:1.3">
-                <a style="color:var(--text-primary)" href="${post.url}">${post.title}</a>
+            <div class="post-card-header">
+              <h2 class="post-card-title">
+                <a href="${post.url}">${post.title}</a>
               </h2>
+              ${post.date ? `<p class="post-card-date">${formatDate(post.date)}</p>` : ''}
             </div>
             <p style="margin-bottom:16px;font-size:16px">${post.excerpt}</p>
             <div class="tags-container">${postTags}</div>
