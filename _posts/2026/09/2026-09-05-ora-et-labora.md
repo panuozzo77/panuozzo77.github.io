@@ -3,7 +3,7 @@ layout: post
 title: "ora et labora"
 date: 2026-09-06 9:27:08 +0200
 excerpt: "barely alive"
-tags: incertezza
+tags: incertezza pensieri
 ---
 
 ![monaco](/assets/img/posts/2026/09/monaco.png)
