@@ -9,7 +9,7 @@ permalink: /blog/archive/
         <h1>Archivio</h1>
         <p style="font-size:18px;color:var(--text-secondary)">Tutti i post, ordinati per data.</p>
         <div style="margin-top: 24px;">
-            <input type="text" id="archive-search" placeholder="Cerca per data (es. /2025/12 o *)"
+            <input type="text" id="archive-search" placeholder="Cerca per data (es. 2025/9, set 2025)"
                 style="width: 100%; max-width: 400px; padding: 12px; font-size: 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); text-align: center;">
         </div>
     </div>
@@ -40,106 +40,3 @@ permalink: /blog/archive/
         </ul>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const searchInput = document.getElementById('archive-search');
-        const staticResults = document.getElementById('archive-static');
-        const dynamicResults = document.getElementById('archive-results');
-        let posts = [];
-
-        // Fetch posts
-        fetch('{{ "/blog/search.json" | relative_url }}')
-            .then(response => response.json())
-            .then(data => {
-                posts = data;
-            });
-
-        searchInput.addEventListener('input', (e) => {
-            const query = e.target.value.trim();
-
-            if (!query) {
-                staticResults.style.display = 'block';
-                dynamicResults.style.display = 'none';
-                return;
-            }
-
-            staticResults.style.display = 'none';
-            dynamicResults.style.display = 'block';
-
-            let filteredPosts = [];
-            let groupBy = 'month'; // Default grouping for dynamic results
-
-            // Parse query
-            if (query === '*' || query === '/') {
-                filteredPosts = posts;
-            } else if (query.startsWith('/')) {
-                const parts = query.split('/').filter(p => p);
-                const year = parts[0];
-                const month = parts[1];
-
-                if (year && !month) {
-                    // /YYYY/ -> Filter by year
-                    filteredPosts = posts.filter(post => post.date.startsWith(year));
-                } else if (year && month) {
-                    // /YYYY/MM -> Filter by year and month
-                    filteredPosts = posts.filter(post => {
-                        const [pYear, pMonth] = post.date.split('-');
-                        return pYear === year && pMonth === month;
-                    });
-                }
-            } else {
-                // Fallback: simple text search if user types without /
-                // Or strictly enforce /? The user asked for /YYYY/ logic.
-                // Let's stick to the requested logic strictly for now, 
-                // but maybe allow partial year typing like "2025" without slash?
-                // The prompt said: "Altrimenti può continuare a scrivere come ad esempio /2025/"
-                // So I will assume strict pattern matching for now or partial date match.
-                // Let's treat it as a date prefix search if it looks like a number
-                filteredPosts = posts.filter(post => post.date.startsWith(query) || post.date.replace(/-/g, '/').startsWith(query));
-            }
-
-            renderResults(filteredPosts);
-        });
-
-        function renderResults(results) {
-            if (results.length === 0) {
-                dynamicResults.innerHTML = '<p style="text-align:center; color:var(--text-secondary); margin-top: 40px;">Non ci sono post</p>';
-                return;
-            }
-
-            let html = '<div class="prose">';
-            let currentGroup = '';
-
-            // Sort by date desc
-            results.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-            results.forEach(post => {
-                const date = new Date(post.date);
-                const year = date.getFullYear();
-                const monthName = date.toLocaleString('it-IT', { month: 'long' });
-                const groupKey = `${monthName.charAt(0).toUpperCase() + monthName.slice(1)} ${year}`;
-
-                if (groupKey !== currentGroup) {
-                    if (currentGroup !== '') html += '</ul>';
-                    html += `<h2 style="margin-top: 48px; border-bottom: 1px solid var(--border); padding-bottom: 8px; color: var(--accent);">${groupKey}</h2><ul style="list-style: none; padding: 0;">`;
-                    currentGroup = groupKey;
-                }
-
-                const day = date.getDate();
-                const dayStr = day < 10 ? '0' + day : day;
-                const monthShort = date.toLocaleString('it-IT', { month: 'short' });
-
-                html += `
-        <li style="margin-bottom: 12px; display: flex; align-items: baseline;">
-          <span style="color: var(--text-tertiary); font-size: 14px; min-width: 80px;">${dayStr} ${monthShort}</span>
-          <a href="${post.url}" style="font-size: 18px; font-weight: 500; text-decoration: none; color: var(--text-primary); transition: color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-primary)'">${post.title}</a>
-        </li>
-      `;
-            });
-
-            html += '</ul></div>';
-            dynamicResults.innerHTML = html;
-        }
-    });
-</script>

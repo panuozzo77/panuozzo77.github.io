@@ -101,6 +101,8 @@
 </html>
 {% if page.url == '/blog/' %}
 <script src="{{ '/assets/js/blog-index.js' | relative_url }}"></script>
+{% elsif page.url == '/blog/archive/' %}
+<script src="{{ '/assets/js/archive-search.js' | relative_url }}"></script>
 {% elsif page.url == '/feed/' %}
 <script src="{{ '/assets/js/feed.js' | relative_url }}"></script>
 {% endif %}
