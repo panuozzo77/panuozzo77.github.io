@@ -2,7 +2,8 @@
 
 <br />
 
-I am 22 and graduated at the University of Salerno in :it: 
+I am 24 and graduated at the University of Salerno in :it: 
+Currently studying Artificial Intelligence Engineering and working as a Backend Software Developer
 
 **About me** ❤️ 
 
@@ -14,7 +15,7 @@ I am 22 and graduated at the University of Salerno in :it:
 
 **My course of study is centered on:**  
 
-
+0. Artificial Intelligence
 1. Machine Learning
 2. Advanced Programming (GoF Design Patterns and Multithreading)
 3. Software Engineering
