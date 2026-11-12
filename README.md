@@ -1,8 +1,4 @@
-<p align="center"><a href="https://panuozzo77.github.io"><img width="80%" alt="Hello, I'm Cristian I do open source!" src="./assets/gh-readme-head.png" /></a></p>
-
-<br />
-
-I am 24 and graduated at the University of Salerno in :it: 
+I am 24 and graduated at the University of Salerno in :it: <br>
 Currently studying Artificial Intelligence Engineering and working as a Backend Software Developer
 
 **About me** ❤️ 
