@@ -27,5 +27,5 @@ Currently studying Artificial Intelligence Engineering and working as a Backend 
 - [![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/cristian-porzio/)
 - 💬 [Ask me about anything here](https://github.com/panuozzo77/panuozzo77/issues)
 
-| <a href="https://github.com/panuozzo77/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api?username=panuozzo77&show_icons=true&include_all_commits=true&theme=buefy&hide_border=true" alt="Anurag's github stats" /></a> | <a href="https://github.com/panuozzo77/github-readme-stats"><img align="center" src="https://github-readme-stats.vercel.app/api/top-langs/?username=panuozzo77&layout=compact&theme=buefy&hide_border=true" /></a> |
-| ------------- | ------------- |
+
+[![GitHub Stats](https://github-stats-extended.vercel.app/api?username=panuozzo77&custom_title=panuozzo%27s%20stats&include_all_commits=true&theme=dark_github)](https://github-stats-extended.vercel.app/api?username=panuozzo77&custom_title=panuozzo%27s%20stats&include_all_commits=true&theme=dark_github)
